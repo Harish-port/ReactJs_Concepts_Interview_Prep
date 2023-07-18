@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { incrementCounter,decrementCounter, resetCounter } from '../Redux/Actions/counterActions';
 function CounterApp() {
   const dispatch = useDispatch();
- 
   const counter = useSelector((state)=>state.count);
   console.log(counter);
   const increment = () => {
@@ -17,7 +16,7 @@ function CounterApp() {
   }
   return (
     <div>
-        <h1>Counter App</h1>
+        <h1>Counter App1</h1>
         <h2>{counter}</h2>
         <h3>Increment Value</h3>
         <button onClick={increment}>Increment</button>
