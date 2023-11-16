@@ -3,6 +3,7 @@ import Child from './Pass_Props_Child_To_Parent/Child';
 import CounterApp from './Redux_Counter_App/CounterApp';
 import Tester from './Testing_Jest_Enzyme/Tester';
 import UseReducerHook from './UseReducer/useReducerHook';
+import Debounce from './Debouce_Concept/Debounce'
 function App() {
   // Creating a function inside parent component
   const pullData = (data) => {
@@ -18,6 +19,8 @@ function App() {
       <UseReducerHook/>
       {/* Redux implementation - a simple counter app */}
       {/* <CounterApp/> */}
+      {/* Debounce concept */}
+      <Debounce/>
     </div>
   );
 }
