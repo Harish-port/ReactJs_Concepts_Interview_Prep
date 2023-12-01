@@ -4,7 +4,7 @@ import axios from "axios";
 export default function Debounce() {
   const [pinCode, setPinCode] = useState("");
   const [outputData, setOutputData] = useState();
-
+  
   useEffect(() => {
     const getData = setTimeout(() => {
       setOutputData();
@@ -19,6 +19,7 @@ export default function Debounce() {
     }, 2000);
     return () => clearInterval(getData);
   }, [pinCode]);
+
   return (
     <div>
       <h1>Debounce Concept</h1>
