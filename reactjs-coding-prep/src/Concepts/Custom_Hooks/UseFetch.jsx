@@ -1,3 +1,15 @@
+// Custom hooks in React may seem daunting at first...
+
+// But they are very simple.
+
+// A custom hook is essentially just a block of code containing some reusable logic.
+
+// It's the same as having a function or a class that is used in multiple different places.
+
+// They typically contain React-specific APIs such as useState or useEffect.
+
+// For example, here is a custom hook for detecting if we are on a mobile screen.
+
 import { useState, useEffect } from "react";
 
 export const useFetch = (url) => {

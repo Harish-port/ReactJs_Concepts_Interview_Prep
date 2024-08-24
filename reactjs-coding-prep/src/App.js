@@ -8,7 +8,6 @@ import Debounce from "./Debouce_Concept/Debounce";
 import { Suspense } from "react";
 import UseREF from "./useRef/useREF";
 // import Wrapper from "./ContextAPI/Wrapper";
-import TableauReact from "./Test/Test";
 // const LazyLoading = React.lazy(() => import("./LazyLoading/lazyLoading"));
 
 function App() {
@@ -19,8 +18,6 @@ function App() {
 
   return (
     <div className="App">
-      <TableauReact/>
-      {/* <CollapsibleDropdown/> */}
     </div>
   );
 }
