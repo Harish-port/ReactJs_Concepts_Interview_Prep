@@ -1,6 +1,7 @@
-.Tab-wrapper button {
-  display: "flex";
+.tab-btns {
+  display: flex;
   cursor: pointer;
+  flex-direction: row;
 }
 .tab-body {
   display: flex;
@@ -18,4 +19,12 @@
 }
 .interest-wrapper {
   display: flex;
+}
+.bottom-btns {
+  display: flex;
+}
+.error {
+  display: block;
+  color: red;
+  font-size: small;
 }

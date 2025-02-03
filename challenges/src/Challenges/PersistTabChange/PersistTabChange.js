@@ -17,19 +17,45 @@ function PersistTabChange() {
           theme: "",
         };
   });
+  const [errors, setErrors] = useState({});
   const [activeTab, setActiveTab] = useState(0);
   const tabConfig = [
     {
       name: "Profile",
-      component: Profile, // Remove JSX brackets
+      component: Profile,
+      validate: () => {
+        const err = {};
+        if (!data.name || data.name.length < 2) {
+          err.name = "Name is not valid!!";
+        }
+        if (!data.age || data.age < 10) {
+          err.age = "Age is not valid!!";
+        }
+        if (!data.email || data.name.length < 2) {
+          err.email = "Email is not valid!!";
+        }
+        setErrors(err);
+        return err.name || err.age || err.email ? false : true;
+      },
     },
     {
       name: "Interest",
       component: Interest,
+      validate: () => {
+        const err = {};
+        if (data.interests.length < 1) {
+          err.interests = "Select atleast one interest";
+        }
+        setErrors(err);
+        return err.interests ? false : true;
+      },
     },
     {
       name: "Settings",
       component: Settings,
+      validate: () => {
+        return true;
+      },
     },
   ];
 
@@ -37,25 +63,45 @@ function PersistTabChange() {
   const handleTabChange = (selectedTab) => {
     setActiveTab(selectedTab);
   };
+  const handleNextClick = () => {
+    if (tabConfig[activeTab].validate()) {
+      setActiveTab((prev) => prev + 1);
+    }
+  };
+  const handlePrevClick = () => {
+    setActiveTab((prev) => prev - 1);
+  };
+  const handleSubmitClick = () => {};
+
   console.log(data, "parentdata");
   useEffect(() => {
     localStorage.setItem("userData", JSON.stringify(data));
   }, [data]);
   return (
     <div className="Tab-wrapper">
-      {tabConfig.map((tab, index) => (
-        <button
-          className={index === activeTab ? "activeTab" : ""}
-          key={index}
-          onClick={() => handleTabChange(index)}
-        >
-          {tab.name}
-        </button>
-      ))}
-      <div className="tab-body">
-        <ActiveTabComponent data={data} setData={setData} />
+      <div className="tab-btns">
+        {tabConfig.map((tab, index) => (
+          <button
+            className={index === activeTab ? "activeTab" : ""}
+            key={index}
+            onClick={() => handleTabChange(index)}
+          >
+            {tab.name}
+          </button>
+        ))}
       </div>
-      <div>{activeTab === tabConfig.length - 1 && <button>Submit</button>}</div>
+      <div className="tab-body">
+        <ActiveTabComponent data={data} setData={setData} errors={errors} />
+      </div>
+      <div className="bottom-btns">
+        {activeTab > 0 && <button onClick={handlePrevClick}>Prev</button>}
+        {activeTab < tabConfig.length - 1 && (
+          <button onClick={handleNextClick}>Next</button>
+        )}
+        {activeTab === tabConfig.length - 1 && (
+          <button onClick={handleSubmitClick}>Submit</button>
+        )}
+      </div>
     </div>
   );
 }
