@@ -19,19 +19,25 @@ function PersistTabChange() {
   });
   const [errors, setErrors] = useState({});
   const [activeTab, setActiveTab] = useState(0);
+  function valid(email) {
+    const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return pattern.test(email);
+  }
   const tabConfig = [
     {
       name: "Profile",
       component: Profile,
       validate: () => {
         const err = {};
+        const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const isEmailValid = pattern.test(data.email);
         if (!data.name || data.name.length < 2) {
           err.name = "Name is not valid!!";
         }
         if (!data.age || data.age < 10) {
           err.age = "Age is not valid!!";
         }
-        if (!data.email || data.name.length < 2) {
+        if (!data.email || !isEmailValid) {
           err.email = "Email is not valid!!";
         }
         setErrors(err);
@@ -84,7 +90,9 @@ function PersistTabChange() {
           <button
             className={index === activeTab ? "activeTab" : ""}
             key={index}
-            onClick={() => handleTabChange(index)}
+            onClick={() =>
+              tabConfig[activeTab].validate() && handleTabChange(index)
+            }
           >
             {tab.name}
           </button>
