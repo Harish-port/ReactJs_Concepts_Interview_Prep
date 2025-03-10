@@ -19,7 +19,6 @@ const BackendEndPagination = () => {
   useEffect(() => {
     fetchData();
   }, [page]);
-  console.log(products, "products<<<");
   const selectPageHandler = (selectedPage) => {
     if (
       selectedPage >= 1 &&
@@ -28,8 +27,8 @@ const BackendEndPagination = () => {
     )
       setPage(selectedPage);
   };
-  console.log(totalPages,"totalPages");
-  
+  console.log(totalPages, "totalPages");
+
   return (
     <>
       {products?.length > 0 && (

@@ -3,7 +3,6 @@ import "./pagination.css";
 const FrontEndPagination = () => {
   const [products, setProducts] = useState([]);
   const [page, setPage] = useState(1);
-
   useEffect(() => {
     fetchData();
   }, []);
@@ -40,7 +39,12 @@ const FrontEndPagination = () => {
       )}
       {products.length > 0 && (
         <div className="pagination">
-          <span  className={page > 1 ? "" : "pagination__disable"} onClick={() => selectPageHandler(page - 1)}>Previos</span>
+          <span
+            className={page > 1 ? "" : "pagination__disable"}
+            onClick={() => selectPageHandler(page - 1)}
+          >
+            Previos
+          </span>
           {[...Array(products.length / 10)].map((_, i) => {
             return (
               <span
@@ -52,7 +56,15 @@ const FrontEndPagination = () => {
               </span>
             );
           })}
-          <span className={page < products.length / 10 ? " " : "pagination__disable"} onClick={() => selectPageHandler(page + 1)}> Next </span>
+          <span
+            className={
+              page < products.length / 10 ? " " : "pagination__disable"
+            }
+            onClick={() => selectPageHandler(page + 1)}
+          >
+            {" "}
+            Next{" "}
+          </span>
         </div>
       )}
     </>
