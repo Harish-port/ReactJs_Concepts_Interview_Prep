@@ -1,10 +1,10 @@
 
-import SearchBox from "./Challenges/TypeaheadSearch/SearchBox";
+import FileExplorer from "./Challenges/FileExplorer/FileExplorer";
+
 function App() {
   return (
     <div className="App">
-      {/* <BackendEndPagination /> */}
-      <SearchBox />
+      <FileExplorer />
     </div>
   );
 }
