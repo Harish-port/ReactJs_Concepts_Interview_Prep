@@ -1,22 +1,14 @@
 import "./App.css";
-import React, { createContext } from "react";
-import Optimization1 from "./Concepts/Optimization/Optimization1";
-import ChildOne from "./Concepts/contextApi/ChildComponetContext/ChildOne";
+import React from "react";
+import UseRefHook from "./Hooks/useRef";
+import Counter from "./Hooks/useReducer";
 function App() {
-  const myContext = createContext();
-  const value = { name: "Harish" };
-  // Creating a function inside parent component
-  const pullData = (data) => {
-    console.log(data, "testing data");
-  };
-
   return (
     <>
       <div className="App">
-        <ChildOne />   
+        <Counter />
       </div>
     </>
   );
 }
-
 export default App;

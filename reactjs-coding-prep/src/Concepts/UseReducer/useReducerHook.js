@@ -80,7 +80,6 @@ export default function LoginUseReducer() {
     }
   };
 
-  {/* <h1>User Reducer Hook use case</h1> */}
   return (
     <div className="App">
       <div className="login-container">

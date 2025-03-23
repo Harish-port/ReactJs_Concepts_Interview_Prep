@@ -1,21 +1,17 @@
-import useTicTacToe from "../hooks/useTicTacToe";
+import useTictacToe from "../hooks/useTicTacToe";
 import "./style.css";
-import React, { useState } from "react";
-
 function TicTacToe() {
-  const { board, calculateWinner, handleClick, getStatusMessage, resetGame } =
-    useTicTacToe();
-  console.log(board);
+  const { board, handleClick, resetGame, getStatusMessage } = useTictacToe();
 
   return (
     <div className="game">
       <div className="status">
         {getStatusMessage()}
         <button className="reset-button" onClick={resetGame}>
-          {" "}
           Reset Game
         </button>
       </div>
+
       <div className="board">
         {board.map((b, index) => {
           return (
@@ -23,8 +19,9 @@ function TicTacToe() {
               className="cell"
               key={index}
               onClick={() => handleClick(index)}
+              disabled={b !== null}
             >
-              {b[index]}
+              {b}
             </button>
           );
         })}

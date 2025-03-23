@@ -5,11 +5,14 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
 import store from "./Concepts/Redux/store";
+import { ThemeProvider } from "./Hooks/ContextAPI/themeContext";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <>
     <Provider store={store}>
-      <App />
+      <ThemeProvider>
+        <App />
+      </ThemeProvider>
     </Provider>
   </>
 );
