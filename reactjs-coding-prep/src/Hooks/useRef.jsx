@@ -1,7 +1,7 @@
 // Purpose: Stores a mutable reference that persists across renders without causing re-renders.
 
 // Use Case: Accessing DOM elements, persisting values without re-render.
-
+// Note: Starting with React 19, ref is available as a prop. In React 18 and earlier, it was necessary to get the ref from forwardRef.
 import React, { useEffect, useRef, useState } from 'react'
 import ThemeSwitcher from './ContextAPI/themeSwitcher';
 

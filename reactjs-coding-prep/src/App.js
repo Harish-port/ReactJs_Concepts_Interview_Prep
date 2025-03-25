@@ -1,14 +1,17 @@
-import "./App.css";
-import React from "react";
-import UseRefHook from "./Hooks/useRef";
-import Counter from "./Hooks/useReducer";
+// import "./App.css";
+import React, { useRef } from "react";
+import UseImperativeHook from "./Hooks/useImperativeHandle";
 function App() {
+  const fancyInputRef = useRef();
   return (
     <>
       <div className="App">
-        <Counter />
+        <UseImperativeHook ref={fancyInputRef}/>
+        <button onClick={() => fancyInputRef.current.focus()}>Focus</button>
+        <button onClick={() => fancyInputRef.current.clear()}>Clear</button>
       </div>
     </>
   );
 }
+
 export default App;
