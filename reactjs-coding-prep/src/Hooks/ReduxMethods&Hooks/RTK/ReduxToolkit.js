@@ -13,8 +13,12 @@
 // Example of slice File
 
 // Note to remember
-1. 
+// 1. extraReducers in Redux toolkit - extraReducers is used in a slice file when handling asynchronous actions created using createAsyncThunk.
+// Unlike reducers which handle synchronous state updates, extraReducers listens for actions from other slice or async thunks.
 
+// ✅ extraReducers is used for handling async actions like API calls.
+// ✅ createAsyncThunk makes it easy to fetch data in Redux Toolkit.
+// ✅ builder.addCase listens for pending, fulfilled, and rejected states.
 import { createSlice } from '@reduxjs/toolkit';
 
 const counterSlice = createSlice({
@@ -88,3 +92,38 @@ const userSlice = createSlice({
 
 export default userSlice.reducer;
 
+
+// Persisting Redux State
+
+// if you want to persist the redux state use redux-persist.
+
+import { configureStore } from 'redux';
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+import counterReducer from './counterSlice';
+
+const persistConfig = {
+    key: 'root',
+    storage
+}
+
+const persistReducer = persistReducer(persistConfig, counterReducer);
+
+const rootStore = configureStore({
+    reducers: {
+        counter: persistReducer
+    }
+})
+
+export default persistor = persistStore(rootStore);
+
+// in index.js
+
+import { PersistGate } from "redux-persist/integration/react";
+import { store, persistor } from "./store";
+
+<Provider store={store}>
+    <PersistGate loading={null} persistor={persistor}>
+        <App />
+    </PersistGate>
+</Provider>
