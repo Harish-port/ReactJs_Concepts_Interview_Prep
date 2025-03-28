@@ -25,7 +25,6 @@ function UseRefHook() {
 
 export default UseRefHook;
 
-
 // ref
 // Definition - A ref is an object that holds a reference to a DOM element or a component.
 
