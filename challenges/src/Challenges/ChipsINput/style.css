@@ -1,0 +1,13 @@
+.chip-wrapper {
+  display: flex;
+  gap: 2px;
+  border: 1px solid grey;
+  background-color: grey;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.close {
+  color: red;
+  font-size: 16px;
+}
