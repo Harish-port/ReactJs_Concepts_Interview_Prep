@@ -1,0 +1,8 @@
+Setps to remember
+
+1. Create the tree structure kind of data with array of objects.
+2. when mapping this json data you need use recursive function
+3. first render normally like how you do and then use that and 
+create a another component and pass the list to it and render this 
+component again inside it based on if the children is a array.
+4. 

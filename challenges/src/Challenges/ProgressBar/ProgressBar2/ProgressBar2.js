@@ -19,16 +19,42 @@ const ProgressBar2 = () => {
   return (
     <div style={{ padding: '20px', width: '300px' }}>
       <div
-        id="testBgColor"
         style={{
-          width: `${progress}%`,
+          backgroundColor: 'lightgray',
           height: '30px',
-          backgroundColor: getColor(progress),
-          transition: 'width 0.3s ease, background-color 0.3s ease'
+          width: '100%',
+          borderRadius: '5px',
+          overflow: 'hidden',
+          position: 'relative'
         }}
-      />
-      <p style={{ marginTop: '10px' }}>{progress}%</p>
-      <div>
+      >
+        <div
+          id="testBgColor"
+          style={{
+            width: `${progress}%`,
+            height: '100%',
+            backgroundColor: getColor(progress),
+            transition: 'width 0.3s ease, background-color 0.3s ease'
+          }}
+        />
+        <div
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            color: 'black', // Use white if progress color is too dark
+            fontWeight: 'bold'
+          }}
+        >
+          {progress}%
+        </div>
+      </div>
+      <div style={{ marginTop: '10px' }}>
         <button onClick={() => handleChange(10)} style={{ marginRight: '10px' }}>
           +10%
         </button>

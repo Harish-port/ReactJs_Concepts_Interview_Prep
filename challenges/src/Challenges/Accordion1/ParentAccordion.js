@@ -1,5 +1,5 @@
-import React, { useState } from "react";
 import Accordion1 from "./Accordion1";
+import PRoacticeAcoordrion from "./Practice";
 
 function ParentAccordion() {
     const items = [
@@ -17,7 +17,7 @@ function ParentAccordion() {
         }]
     return (
         <div>
-            <Accordion1 items={items} />
+            <PRoacticeAcoordrion items={items} />
         </div>
     );
 }
