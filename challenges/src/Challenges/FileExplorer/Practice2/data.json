@@ -32,11 +32,21 @@
         "id": 6,
         "name": "App.js",
         "isFolder": false
+      },
+      {
+        "id": 7,
+        "name": "index.js",
+        "isFolder": false
+      },
+      {
+        "id": 8,
+        "name": "style.css",
+        "isFolder": false
       }
     ]
   },
   {
-    "id": 7,
+    "id": 9,
     "name": "package.json",
     "isFolder": false
   }

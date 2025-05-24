@@ -2,8 +2,6 @@ import { useState } from "react";
 
 const List = ({ list }) => {
     const [isExpanded, setIsExpanded] = useState({})
-    console.log(isExpanded);
-
     return (
         <div className="container">
             {list.map(node => (
