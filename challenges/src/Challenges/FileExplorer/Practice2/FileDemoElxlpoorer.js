@@ -5,9 +5,10 @@ import './demo.css';
 
 const DemoFile = () => {
     const [data, setData] = useState(json);
+
     const addListToNode = (parentId) => {
         try {
-            const name = prompt("Enter Name");
+            const name = prompt("Enter Folder Name");
             const updatedList = (listOfNodes) => {
                 // eslint-disable-next-line array-callback-return
                 return listOfNodes.map((node) => {
@@ -33,6 +34,36 @@ const DemoFile = () => {
         }
     }
 
+    const addAnodeToList = (parentId) => {
+        try {
+            const name = prompt("Enter File Name");
+            const updatedList2 = (list) => {
+                return list.map(node => {
+                    if (node.id === parentId && node.isFolder) {
+                        return {
+                            ...node,
+                            children: [
+                                ...(node.children || []),
+                                {
+                                    id: Date.now().toString(),
+                                    name,
+                                    isFolder: false
+                                }
+                            ]
+                        };
+                    }
+                    if (node.children && node.children.length > 0) {
+                        return { ...node, children: updatedList2(node.children) };
+                    }
+                    return node;
+                });
+            };
+            setData(prev => updatedList2(prev));
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
     const deleteNodeFromList = (itemId) => {
         const updatedList = (list) => {
             return list.filter((node) => node.id !== itemId).map(node => {
@@ -48,7 +79,7 @@ const DemoFile = () => {
     return (
         <>
             <h1>Demo session 1</h1>
-            <List list={data} addListToNode={addListToNode}  deleteNodeFromList={deleteNodeFromList}/>
+            <List list={data} addListToNode={addListToNode} deleteNodeFromList={deleteNodeFromList} addAnodeToList={addAnodeToList} />
         </>
     )
 }
