@@ -10,12 +10,15 @@ import FileDemo from "./Challenges/FileExplorer/PraticeFileExplorer/FileDemo";
 import TicTacToe from "./Challenges/PracticeComponent/components/TicTacToe";
 import ProgressBar2 from "./Challenges/ProgressBar/ProgressBar2/ProgressBar2";
 import MainPage from "./Challenges/Tic-Tac-Toe/MainPage";
-
+import SearchBoxPractice from "./Challenges/TypeaheadSearch/Practice/SearchBoxPractice";
+import SearchBox from './Challenges/TypeaheadSearch/SearchBox';
+import FrontEndPagination from './Challenges/Pagination/FrontendFocusedPagination'
+import FrontEndPaginationPractice from "./Challenges/Pagination/Practice/FrontEndPagination";
 function App() {
 
   return (
-    <div className="App">
-      <DemoFile />
+    <div className="Apph">
+      <FrontEndPaginationPractice />
     </div>
   );
 }
