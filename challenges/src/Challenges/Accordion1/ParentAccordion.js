@@ -1,4 +1,6 @@
+import Accordion from "./Accordion1";
 import Accordion1 from "./Accordion1";
+import PracticeAcordion from "./Practice";
 import PRoacticeAcoordrion from "./Practice";
 
 function ParentAccordion() {
@@ -17,7 +19,7 @@ function ParentAccordion() {
         }]
     return (
         <div>
-            <PRoacticeAcoordrion items={items} />
+            <PracticeAcordion items={items} />
         </div>
     );
 }

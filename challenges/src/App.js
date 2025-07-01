@@ -16,11 +16,12 @@ import FrontEndPagination from './Challenges/Pagination/FrontendFocusedPaginatio
 import FrontEndPaginationPractice from "./Challenges/Pagination/Practice/FrontEndPagination";
 import BackendEndPagination from "./Challenges/Pagination/BackendFocusedPagiantion";
 import BackendPaginationPractice from "./Challenges/Pagination/Practice/BackendPaginationPractice";
-function App() {
+import PracticeChips from "./Challenges/ChipsINput/Practice";
 
+function App() {
   return (
-    <div className="Apph">
-      <BackendPaginationPractice   />
+    <div className="App">
+      <ParentAccordion   />
     </div>
   );
 }

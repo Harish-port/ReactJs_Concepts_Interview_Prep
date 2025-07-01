@@ -4,6 +4,7 @@ import UseImperativeHook from "./Hooks/useImperativeHandle";
 import FancyInput from "./Hooks/Practicss";
 import Child from "./Concepts/Pass_Props_Child_To_Parent/Child";
 import CounterApp from "./Redux_Counter_App/CounterApp";
+import CustomHookUsage from "./Concepts/Custom_Hooks/Usage";
 
 function App() {
   const fancyInputRef = useRef();
@@ -21,7 +22,7 @@ function App() {
          <button onClick={() => fancyInputRef.current.clear()}>Clear</button> */}
       </div>
       <Child setTest={handleChild} />
-      <CounterApp />
+      <CustomHookUsage />
     </>
   );
 }

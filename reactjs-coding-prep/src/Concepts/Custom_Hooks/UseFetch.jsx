@@ -27,41 +27,41 @@ export const useFetch = (url) => {
 // Improving the Fetch Hook adding loading message
 export const useFetch1 = (url) => {
   const [data, setData] = useState(null);
-  const [isPending, setIsPending] = useState(false);
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
     const fetchData = async () => {
-      setIsPending(true);
+      setLoading(true);
       const response = await fetch(url);
       const json = await response.json();
-      setIsPending(false);
+      setLoading(false);
       setData(json);
     };
     fetchData();
   }, [url]);
-  return { data, isPending };
+  return { data, loading };
 };
 
 //adding error handling
 export const useFetch2 = (url) => {
   const [data, setData] = useState(null);
-  const [isPending, setIsPending] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   useEffect(() => {
     const fetchData = async () => {
-      setIsPending(true);
+      setLoading(true);
       try {
         const response = await fetch(url);
         if (!response.ok) throw new Error(response.statusText);
         const json = await response.json();
-        setIsPending(false);
+        setLoading(false);
         setData(json);
         setError(null);
       } catch (error) {
         setError(`${error} Could not Fetch Data `);
-        setIsPending(false);
+        setLoading(false);
       }
     };
     fetchData();
   }, [url]);
-  return { data, isPending, error };
+  return { data, loading, error };
 };

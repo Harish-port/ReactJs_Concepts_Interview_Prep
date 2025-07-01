@@ -1,29 +1,22 @@
-import { useState } from "react";
-const PracticeAcoordrion = ({ items }) => {
-    const [activeIndex, setActiveIndex] = useState(null);
-    const handleClick = (selectedIndex) => {
-        if (selectedIndex === activeIndex) {
-            setActiveIndex(null)
-        } else {
-            setActiveIndex(selectedIndex)
-        }
+import { useState } from "react"
+
+function PracticeAcordion({ items }) {
+    const [activeIndex, setActiveIndex] = useState(null)
+    const handleAccord = (selectedAccord) => {
+        
     }
     return (
-        <>
+        <div>
             {items.map((item, index) => (
-                <div key={index} className="wrapper" style={{ border: "1px solid gray", width: "400px", margin: "20px auto" }}>
-                    <div style={{ backgroundColor: "gray", color: "white", padding: "10px", cursor: 'pointer' }} onClick={() => handleClick(index)} >
-                        {item.title}
+                <div style={{ display: "flex", flexDirection: "column", border: "1px solid black", padding: "10px" }} onClick={() => handleAccord(index)}>
+                    {item.title}
+                    <div style={{ borderBottom: '0px solid transperent', border: "1px solid black" }}>
+                        {item.content}
                     </div>
-                    {activeIndex === index &&
-                        (<div style={{ backgroundColor: "lightgray", color: "black", padding: "10px" }}>
-                            {item.content}
-                        </div>)
-                    }
                 </div>
             ))}
-        </>
+        </div>
     )
 }
 
-export default PracticeAcoordrion;
+export default PracticeAcordion
