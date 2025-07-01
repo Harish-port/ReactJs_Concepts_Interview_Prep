@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import './style.css'
-const FrontEndPaginationPractice = () => {
+import './style.css';
+
+const BackendPaginationPractice = () => {
     const [products, setProducts] = useState([]);
     const [page, setPage] = useState(1);
     const fetchData = async () => {
-        const result = await fetch("https://dummyjson.com/products?limit=100");
+        const result = await fetch(`https://dummyjson.com/products?limit=10?skip=${page * 10 - 10}`);
         const data = await result.json();
         if (data && data.products) {
             setProducts(data.products)
@@ -13,7 +14,8 @@ const FrontEndPaginationPractice = () => {
     }
 
     useEffect(() => {
-        fetchData()
+        fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const handlePagination = (selectedPage) => {
@@ -50,4 +52,4 @@ const FrontEndPaginationPractice = () => {
     )
 }
 
-export default FrontEndPaginationPractice;
+export default BackendPaginationPractice;

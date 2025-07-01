@@ -1,10 +1,13 @@
-import React from 'react'
+import React from "react";
 
-function Child(props) {
- console.log(props.props,"tes");
-    return (
-    <div>gt</div>
+function Child({ setTest }) {
+  const sendData = () => {
+    setTest("Hello from Child!!!")
+  }
+  
+  return (
+    <div onClick={sendData} >gt</div>
   )
 }
 
-export default Child
+export default Child;

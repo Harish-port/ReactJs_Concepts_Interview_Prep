@@ -14,11 +14,13 @@ import SearchBoxPractice from "./Challenges/TypeaheadSearch/Practice/SearchBoxPr
 import SearchBox from './Challenges/TypeaheadSearch/SearchBox';
 import FrontEndPagination from './Challenges/Pagination/FrontendFocusedPagination'
 import FrontEndPaginationPractice from "./Challenges/Pagination/Practice/FrontEndPagination";
+import BackendEndPagination from "./Challenges/Pagination/BackendFocusedPagiantion";
+import BackendPaginationPractice from "./Challenges/Pagination/Practice/BackendPaginationPractice";
 function App() {
 
   return (
     <div className="Apph">
-      <FrontEndPaginationPractice />
+      <BackendPaginationPractice   />
     </div>
   );
 }
