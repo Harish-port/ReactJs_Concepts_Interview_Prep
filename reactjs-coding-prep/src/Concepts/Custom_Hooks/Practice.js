@@ -1,9 +1,19 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useState } from "react"
 
-export default function usePrevious(value) {
-    const ref = useRef()
+export default function useWindowSize1() {
+    const [winddowSize, setWindowSize] = useState({
+        width: window.innerWidth,
+        height: window.innerHeight,
+    });
     useEffect(() => {
-        ref.current = value
-    }, [value])
-    return ref.current;
+        const handleResize = () => setWindowSize({
+            width: window.innerWidth,
+            height: window.innerHeight,
+        });
+        window.addEventListener("resize", handleResize)
+        return () => {
+            window.removeEventListener("resize", handleResize)
+        }
+    }, [])
+    return winddowSize;
 }
