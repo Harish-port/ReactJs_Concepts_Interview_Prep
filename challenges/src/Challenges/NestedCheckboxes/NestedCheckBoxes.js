@@ -14,7 +14,9 @@ const CheckBoxes = ({ data, checked, setChecked }) => {
             }
             updateChildren(node);
             const verifyChecked = (node) => {
+                // if node doestnot have children and we should provide present value of that node
                 if (!node.children) return newState[node.id] || false;
+                // if every child is checked then means the node  should be checked
                 newState[node.id] = node.children.every((child) => verifyChecked(child))
                 return newState[node.id];
             }
