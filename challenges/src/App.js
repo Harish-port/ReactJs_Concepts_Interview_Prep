@@ -18,11 +18,12 @@ import BackendEndPagination from "./Challenges/Pagination/BackendFocusedPagianti
 import BackendPaginationPractice from "./Challenges/Pagination/Practice/BackendPaginationPractice";
 import PracticeChips from "./Challenges/ChipsINput/Practice";
 import TodoList from "./Challenges/Todo_Akshay/TodoList";
+import NestedCheckBoxes from "./Challenges/NestedCheckboxes/NestedCheckBoxes";
 
 function App() {
   return (
     <div className="App">
-      <TodoList />
+      <NestedCheckBoxes />
     </div>
   );
 }
