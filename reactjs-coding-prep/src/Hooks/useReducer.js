@@ -5,9 +5,7 @@
 // so what is reducer in js just for understanding
 // It takes in a bunch of things and returns one single thing
 
-import { useReducer, useState } from "react";
-
-
+import { useReducer } from "react";
 // syntax
 // useReducer(<reducer />, <initialState />)
 // it take 2 arguemnts
@@ -27,7 +25,8 @@ const CounterReducer = (state, action) => {
         default:
             return state;
     }
-}
+} 
+ 
 const Counter = () => {
     const [count, dispatch] = useReducer(CounterReducer, initialState)
     return (

@@ -20,7 +20,7 @@ const myComponent = ({ data }) => {
 
     return <div>Computed Value : {computedValue}</div>
 }
-
+ 
 // How it works?
 // 1. If data does not change the computation is not re-executed.
 // 2. Prevents unnecessary recalculations within the component.

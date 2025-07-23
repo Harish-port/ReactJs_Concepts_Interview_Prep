@@ -2,6 +2,8 @@
 
 // Use Case: Accessing DOM elements, persisting values without re-render.
 // Note: Starting with React 19, ref is available as a prop. In React 18 and earlier, it was necessary to get the ref from forwardRef.
+//explaination > useRef is a react hook that is used to access the DOM elements directly or store values that persist across render without triggering re-renders- like previous values, timers, or input focus.
+
 
 import React, { useEffect, useRef, useState } from 'react'
 import ThemeSwitcher from './ContextAPI/themeSwitcher';

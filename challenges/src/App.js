@@ -17,11 +17,12 @@ import FrontEndPaginationPractice from "./Challenges/Pagination/Practice/FrontEn
 import BackendEndPagination from "./Challenges/Pagination/BackendFocusedPagiantion";
 import BackendPaginationPractice from "./Challenges/Pagination/Practice/BackendPaginationPractice";
 import PracticeChips from "./Challenges/ChipsINput/Practice";
+import TodoList from "./Challenges/Todo_Akshay/TodoList";
 
 function App() {
   return (
     <div className="App">
-      <ParentAccordion   />
+      <TodoList />
     </div>
   );
 }

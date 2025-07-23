@@ -5,15 +5,17 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
 // import store from "./Concepts/Redux/store";
-
-import { store } from "./Redux_Counter_App/redux/store";
+// import { store } from "./Redux_Counter_App/redux/store";
 import ThemeProvider from "./Hooks/ContextAPI/ThemeContext/ThemeProvider";
+import CounterClass from './ClassComponents/Redux/createCounter';
+import store from './ClassComponents/Redux/store';
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <>
     <Provider store={store}>
       <ThemeProvider>
-        <App />
+        <CounterClass />
       </ThemeProvider>
     </Provider>
   </>

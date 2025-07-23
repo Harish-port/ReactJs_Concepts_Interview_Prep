@@ -1,18 +1,13 @@
-import React, { Component } from "react";
+import { Component } from "react";
 
-export default class LifeCycle extends Component {
-  constructor() {
-    super();
-    this.state = {
-      name: "",
-      password: "",
-    };
-  }
+class CounterClass extends Component {
   render() {
     return (
-      <div>
-        <h1>LifeCycle event of a component</h1>
-      </div>
-    );
+      <>
+
+      </>
+    )
   }
 }
+
+export default CounterClass

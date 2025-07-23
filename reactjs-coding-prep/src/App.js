@@ -11,7 +11,7 @@ function App() {
   const handleChild = (data) => {
     console.log(data);
   }
-  
+
   return (
     <>
       <div className="App">

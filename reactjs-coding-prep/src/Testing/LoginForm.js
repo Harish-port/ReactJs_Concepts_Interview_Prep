@@ -10,7 +10,7 @@ const LoginForm = React.memo(() => {
         setSubmitted(true);
     };
     console.log("triggere LoginForm");
-    
+
     return (
         <form onSubmit={handleSubmit}>
             <label htmlFor="username">Username:</label>
@@ -20,7 +20,7 @@ const LoginForm = React.memo(() => {
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
             />
-            <label htmlFor="password">Username:</label>
+            <label htmlFor="password">Password:</label>
             <input
                 id="password"
                 type="password"
@@ -28,7 +28,6 @@ const LoginForm = React.memo(() => {
                 onChange={(e) => setPassword(e.target.value)}
             />
             <button type="submit">Submit</button>
-
             {submitted && <p>Hello, {username}!</p>}
         </form>
     );
