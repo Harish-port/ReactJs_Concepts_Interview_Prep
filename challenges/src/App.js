@@ -22,11 +22,12 @@ import NestedCheckBoxes from "./Challenges/NestedCheckboxes/NestedCheckBoxes";
 import Timer from "./Challenges/stopwatch/Timer";
 import DragDrop from "./Challenges/DragDrop/DragDrop";
 import PracticeDrag from "./Challenges/DragDrop/PracticeDrag";
+import TodoWithTimer from "./Challenges/TodoListWithTimer/TodoListTImer";
 
 function App() {
   return (
     <div className="App">
-      <PracticeDrag />
+      <TodoWithTimer />
     </div>
   );
 }
