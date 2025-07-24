@@ -19,11 +19,14 @@ import BackendPaginationPractice from "./Challenges/Pagination/Practice/BackendP
 import PracticeChips from "./Challenges/ChipsINput/Practice";
 import TodoList from "./Challenges/Todo_Akshay/TodoList";
 import NestedCheckBoxes from "./Challenges/NestedCheckboxes/NestedCheckBoxes";
+import Timer from "./Challenges/stopwatch/Timer";
+import DragDrop from "./Challenges/DragDrop/DragDrop";
+import PracticeDrag from "./Challenges/DragDrop/PracticeDrag";
 
 function App() {
   return (
     <div className="App">
-      <NestedCheckBoxes />
+      <PracticeDrag />
     </div>
   );
 }
