@@ -26,11 +26,14 @@ import PracticeDrag from "./Challenges/DragDrop/PracticeDrag";
 import TodoWithTimer from "./Challenges/TodoListWithTimer/TodoListTImer";
 import ModalExample from './Challenges/ModelPopUp/ModelPopUp';
 import PracticeModel from './Challenges/ModelPopUp/PracticeModel';
+import DataGrid from './Challenges/DataTablePagination/DataGrid';
+import PracticeGrid from './Challenges/DataTablePagination/PracticeGrid';
 
 function App() {
   return (
     <div className="App">
-      <PracticeModel />
+      <DataGrid />
+      <PracticeGrid />
     </div>
   );
 }
