@@ -1,0 +1,18 @@
+Why useRef?
+
+1. To store the interval ID : the window.setInterval method returns an ID that is used to clear the interval using clearInterval. this ID needs to persist between renders of the component but should not trigger a re-render when updated. useReff is perfect for this
+2. Persistence Across Renders: useRef ensures the value of timerRef persists across renders, unlike a normal variable which resets on every render.
+
+When to Use useRef?
+Accessing DOM Elements: To directly interact with a DOM element (e.g., focus on an input field).
+Mutable Values Across Renders: For values that need to persist without triggering a re-render.
+Keeping Mutable State: For state-like behavior that doesn’t need re-renders (e.g., interval IDs, debouncing timers, or previous state).
+
+Why Use the Callback Form?
+State Updates Are Asynchronous: In React, setState (or in this case, setTime) is asynchronous. The actual state value may not immediately reflect the most recent update. By using the callback form, you ensure that you're working with the most up-to-date state.
+
+tsx
+Copy code
+setTime((prevTime) => prevTime + 1);
+prevTime is the current state value at the moment the update is applied.
+This ensures the next state value (prevTime + 1) is calculated correctly.

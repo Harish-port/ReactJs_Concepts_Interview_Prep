@@ -1,0 +1,12 @@
+Setps to remember
+
+1. Create the tree structure kind of data with array of objects.
+2. when mapping this json data you need use recursive function
+3. first render normally like how you do and then use that and
+   create a another component and pass the list to it and render this
+   component again inside it based on if the children is a array.kind of a recurisve way.
+4. add a + and - before each folder and use toggle for this feature.
+5. one problem here is when you click on + all the folders will expand so to solve this
+6. instead of toggle use object("public":true).
+7. now add a folder icon next to the folder name and create the functionality for adding folder based on id.
+8. 

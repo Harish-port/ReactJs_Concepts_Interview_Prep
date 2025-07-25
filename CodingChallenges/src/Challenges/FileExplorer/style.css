@@ -1,0 +1,12 @@
+.container {
+    text-align: left;
+    padding-left: 10px;
+    max-width: 200px;
+    cursor: pointer;
+}
+img{
+    width: 20px;
+    margin-left: 10px;
+    vertical-align: middle;
+    padding-top: 2px;
+}
