@@ -1,5 +1,4 @@
 import React from 'react';
-
 import Accordion from "./Challenges/Accordion1/Accordion1";
 import Accordion1 from "./Challenges/Accordion1/Accordion1";
 import ParentAccordion from "./Challenges/Accordion1/ParentAccordion";
@@ -28,12 +27,13 @@ import ModalExample from './Challenges/ModelPopUp/ModelPopUp';
 import PracticeModel from './Challenges/ModelPopUp/PracticeModel';
 import DataGrid from './Challenges/DataTablePagination/DataGrid';
 import PracticeGrid from './Challenges/DataTablePagination/PracticeGrid';
+import ToastComponent from './Challenges/ReusableToast/ToastComponent';
 
 function App() {
   return (
     <div className="App">
-      <DataGrid />
-      <PracticeGrid />
+      {/* <DataGrid /> */}
+      <ToastComponent />
     </div>
   );
 }

@@ -19,6 +19,24 @@ function PracticeGrid() {
         setCurrentPage((prev) => Math.min(prev + 1, totalPages));
     };
     console.log(currentData, "v");
+    let obj = {
+        firstName: "John",
+        lastName: "Doe",
+        address: {
+            street: "123 Main St",
+            city: "Anytown",
+            state: "CA",
+            zip: "12345"
+        }
+    }
+    const [updateObj, setupdateObj] = useState(obj)
+    const handleClicks = () => {
+        let res = Object.assign(obj);
+        res.address.city = "India";
+        setupdateObj(res)
+        console.log(obj, "click");
+    }
+    console.log(obj, "unclick");
 
     return (
         <div>
@@ -65,6 +83,18 @@ function PracticeGrid() {
                         <option value="10">10</option>
                     </select>
                 </div>
+            </div>
+            <div>
+                <p>
+                    {updateObj.firstName}
+                </p>
+                <p>
+                    {updateObj.lastName}
+                </p>
+                <p>
+                    {updateObj.address.city}
+                </p>
+                <button onClick={handleClicks}>Click here!!</button>
             </div>
         </div>
     )
