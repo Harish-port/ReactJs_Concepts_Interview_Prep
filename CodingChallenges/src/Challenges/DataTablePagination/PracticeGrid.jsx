@@ -1,100 +1,80 @@
 import React, { useState } from 'react'
-import { sampleData } from './SampleData'
+import { sampleData } from './SampleData';
+
 function PracticeGrid() {
     const [currentPage, setCurrentPage] = useState(1);
-    const [rowsPerPage, setRowsPerPage] = useState(5);
-    const totalPages = Math.ceil(sampleData.length / rowsPerPage);
+    const [rowsPerPage, setRowsPerPage] = useState(3);
 
+    const totalPages = Math.ceil(sampleData.length / rowsPerPage);
     const startIndex = (currentPage - 1) * rowsPerPage;
     const currentData = sampleData.slice(startIndex, startIndex + rowsPerPage);
+
     const handleRowsPerPage = (e) => {
         setRowsPerPage(Number(e.target.value));
         setCurrentPage(1)
     }
-    const handlePrev = () => {
-        setCurrentPage((prev) => Math.max(prev - 1, 1));
-    };
+
+    const handlePrevious = () => {
+        setCurrentPage((prev) => Math.max(prev - 1, 1))
+    }
 
     const handleNext = () => {
-        setCurrentPage((prev) => Math.min(prev + 1, totalPages));
-    };
-    console.log(currentData, "v");
-    let obj = {
-        firstName: "John",
-        lastName: "Doe",
-        address: {
-            street: "123 Main St",
-            city: "Anytown",
-            state: "CA",
-            zip: "12345"
-        }
+        setCurrentPage((prev) => Math.min(prev + 1, totalPages))
     }
-    const [updateObj, setupdateObj] = useState(obj)
-    const handleClicks = () => {
-        let res = Object.assign(obj);
-        res.address.city = "India";
-        setupdateObj(res)
-        console.log(obj, "click");
-    }
-    console.log(obj, "unclick");
+    console.log(currentPage);
 
     return (
         <div>
-            <h2>
-                Practice Grid Data Table
-            </h2>
-            <div>
-                <table border='1' cellPadding='10' style={{ width: '98vw' }} >
-                    <thead>
+            <h1>Practise Grid</h1>
+            <table border={1} cellPadding='10' style={{ borderCollapse: "collapse", padding: "10px", width: "98vw" }}>
+                <thead>
+                    <th>
+                        id
+                    </th>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Age
+                    </th>
+                </thead>
+                <tbody>
+                    {currentData.map((tData) => (
                         <tr>
-                            <th>
-                                id
-                            </th>
-                            <th>
-                                name
-                            </th>
-                            <th>
-                                age
-                            </th>
+                            <td>
+                                {tData.id}
+                            </td>
+                            <td>
+                                {tData.name}
+                            </td>
+                            <td>
+                                {tData.age}
+                            </td>
                         </tr>
-                    </thead>
-                    <tbody>
-                        {currentData.map((row) => (
-                            <tr>
-                                <td>{row.id}</td>
-                                <td>{row.name}</td>
-                                <td>{row.age}</td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
-            </div>
-            <div style={{ marginTop: '10px', display: 'flex', justifyContent: "space-between" }}>
+                    ))}
+                </tbody>
+            </table>
+            <div style={{ padding: "10px 0", display: "flex" }}>
                 <div>
-                    <button onClick={handlePrev}>Previous</button>
+                    {
+
+                        <button disabled={currentPage === 1 ? true : false} onClick={handlePrevious}>Previous</button>
+                    }
                     <span> Page {currentPage} of {totalPages} </span>
-                    <button onClick={handleNext}>Next</button>
+                    {
+
+                        <button disabled={currentPage === totalPages ? true : false} onClick={handleNext}>Next</button>
+
+                    }
                 </div>
-                <div>
-                    <span>Rows per page</span>
+                <div style={{ marginLeft: "auto" }}>
+                    <span>Rows per page </span>
                     <select value={rowsPerPage} onChange={handleRowsPerPage}>
-                        <option value="3">3</option>
-                        <option value="5">5</option>
-                        <option value="10">10</option>
+                        <option value='3'>3</option>
+                        <option value='5'>5</option>
+                        <option value='10'>10</option>
                     </select>
                 </div>
-            </div>
-            <div>
-                <p>
-                    {updateObj.firstName}
-                </p>
-                <p>
-                    {updateObj.lastName}
-                </p>
-                <p>
-                    {updateObj.address.city}
-                </p>
-                <button onClick={handleClicks}>Click here!!</button>
             </div>
         </div>
     )

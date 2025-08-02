@@ -1,39 +1,38 @@
-import { useState } from "react";
+import React, { useState } from 'react'
 
-export default function PracticeChips() {
-    const [inputValue, setInputValue] = useState("");
-    const [chips, setChips] = useState([]);
-    const handleInput = (e) => {
+function PracticeChip() {
+    const [inputValue, setInputValue] = useState('');
+    const [chipsText, setChipsText] = useState([]);
+    const handleInputCHange = (e) => {
         setInputValue(e.target.value);
-    };
-    const handleSubmit = (e) => {
+    }
+    const handleKeyPress = (e) => {
         if (e.key === "Enter") {
-            const trimmedValue = inputValue.trim();
-            if (trimmedValue) {
-                setChips([...chips, inputValue]);
-            }
+            const chipText = inputValue.trim();
+            if (chipText === "") return;
+            setChipsText([...chipsText, chipText])
             setInputValue("")
         }
-    };
-    const handleChipDelete = (selectedChip) => {
-        setChips(chips.filter((chip => chip !== selectedChip)))
     }
+    const handleDelete = (selectedChip) => {
+        setChipsText(chipsText.filter((chip) => chip !== selectedChip))
+    }
+    console.log(chipsText);
+    
     return (
-        <div className="App">
-            <input
-                type="text"
-                placeholder="Enter text"
-                onKeyDown={handleSubmit}
-                value={inputValue}
-                onChange={handleInput}
-            />
-            {chips.map((chip, index) => (
-                <div key={index}>
-                    <span>
+        <div>
+            <h1>Practise</h1>
+            <input type="text" placeholder='enter text and hit entersr' value={inputValue} onKeyDown={handleKeyPress} onChange={handleInputCHange} />
+            {
+                chipsText.map((chip, index) => (
+                    <div key={index}>
                         {chip}
-                    </span><span onClick={() => handleChipDelete(chip)}>x</span>
-                </div>
-            ))}
+                        <span onClick={() => handleDelete(chip)}>X</span><br />
+                    </div>
+                ))
+            }
         </div>
-    );
+    )
 }
+
+export default PracticeChip

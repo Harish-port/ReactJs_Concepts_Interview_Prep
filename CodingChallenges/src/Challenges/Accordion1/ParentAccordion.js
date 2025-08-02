@@ -1,5 +1,6 @@
 import Accordion from "./Accordion1";
 import Accordion1 from "./Accordion1";
+import React from 'react';
 import PracticeAcordion from "./Practice";
 import PRoacticeAcoordrion from "./Practice";
 
@@ -19,6 +20,7 @@ function ParentAccordion() {
         }]
     return (
         <div>
+            <Accordion items={items} />
             <PracticeAcordion items={items} />
         </div>
     );

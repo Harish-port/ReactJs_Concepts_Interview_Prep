@@ -28,12 +28,16 @@ import PracticeModel from './Challenges/ModelPopUp/PracticeModel';
 import DataGrid from './Challenges/DataTablePagination/DataGrid';
 import PracticeGrid from './Challenges/DataTablePagination/PracticeGrid';
 import ToastComponent from './Challenges/ReusableToast/ToastComponent';
+import PracticeAcordion from './Challenges/Accordion1/Practice';
+import PracticeChip from './Challenges/ChipsINput/Practice';
+import DataTable from './Challenges/DataTablePagination/DataGrid';
 
 function App() {
   return (
     <div className="App">
       {/* <DataGrid /> */}
-      <ToastComponent />
+      <DataTable />
+      <PracticeGrid />
     </div>
   );
 }
