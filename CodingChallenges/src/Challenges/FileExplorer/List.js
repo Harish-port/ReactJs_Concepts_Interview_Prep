@@ -1,5 +1,4 @@
-import { useState } from "react";
-
+import React, { useState } from "react";
 const List = ({ list }) => {
     const [isExpanded, setIsExpanded] = useState({})
     return (

@@ -9,4 +9,6 @@ Setps to remember
 5. one problem here is when you click on + all the folders will expand so to solve this
 6. instead of toggle use object("public":true).
 7. now add a folder icon next to the folder name and create the functionality for adding folder based on id.
-8. 
+8. addListToNode in this function we need to update the main data for that check if the parentId with the main data id if its equal create an object and if there is children(other case) then call recursvely the same function for that check if children is present and at last return the node
+9. deleteNodeFromList basically filter and map for map condition its again check for children and call recursvely and the same function and finally return node.
+10. 

@@ -31,13 +31,15 @@ import ToastComponent from './Challenges/ReusableToast/ToastComponent';
 import PracticeAcordion from './Challenges/Accordion1/Practice';
 import PracticeChip from './Challenges/ChipsINput/Practice';
 import DataTable from './Challenges/DataTablePagination/DataGrid';
+import DragDropTasks from './Challenges/DragDrop/DragDrop';
+import PraticeFileExpolo from './Challenges/FileExplorer/Practice3/PraticeFileExpolo';
 
 function App() {
   return (
     <div className="App">
       {/* <DataGrid /> */}
-      <DataTable />
-      <PracticeGrid />
+      {/* <DemoFile/> */}
+      <PraticeFileExpolo/>
     </div>
   );
 }

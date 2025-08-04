@@ -1,8 +1,7 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import json from './data.json'
 import List from './List'
 import './demo.css';
-
 const DemoFile = () => {
     const [data, setData] = useState(json);
 
@@ -16,7 +15,7 @@ const DemoFile = () => {
                         return {
                             ...node, children: [...node.children, {
                                 id: Date.now().toString(),
-                                name,
+                                name,   
                                 isFolder: true,
                                 children: []
                             }]
@@ -28,6 +27,7 @@ const DemoFile = () => {
                     return node;
                 })
             };
+            
             setData((prev) => updatedList(prev))
         } catch (error) {
             console.log(error);
