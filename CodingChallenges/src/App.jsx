@@ -33,13 +33,15 @@ import PracticeChip from './Challenges/ChipsINput/Practice';
 import DataTable from './Challenges/DataTablePagination/DataGrid';
 import DragDropTasks from './Challenges/DragDrop/DragDrop';
 import PraticeFileExpolo from './Challenges/FileExplorer/Practice3/PraticeFileExpolo';
+import CheckBoxPractise from './Challenges/NestedCheckboxes/PractiseCheckbox/CheckBoxPractise';
+import Main from './Challenges/ProductStore/Main';
 
 function App() {
   return (
     <div className="App">
       {/* <DataGrid /> */}
       {/* <DemoFile/> */}
-      <PraticeFileExpolo/>
+      <Main />
     </div>
   );
 }

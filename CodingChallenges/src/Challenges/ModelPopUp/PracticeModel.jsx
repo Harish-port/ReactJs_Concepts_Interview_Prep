@@ -1,57 +1,29 @@
-import React, { useEffect, useRef, useState } from 'react'
-const useClickOutside = (ref, onOutsideClick) => {
-    useEffect(() => {
-        const handleClick = (event) => {
-            if (ref.current && !ref.current.contains(event.target)) {
-                onOutsideClick()
-            }
-        }
-        document.addEventListener('mousedown', handleClick)
-        return () => {
-            document.removeEventListener('mousedown', handleClick)
-        }
-    }, [ref])
-}
-function PracticeModel() {
+import React, { useRef, useState } from 'react'
+import practiseHook from '../../CustomHooks/practiseHook';
+
+export default function PracticeModel() {
     const [isOpen, setIsOpen] = useState(false);
     const modelRef = useRef();
-    useClickOutside(modelRef, () => setIsOpen(false))
+    practiseHook(modelRef, () => setIsOpen(false))
     return (
         <div>
-            <h2>Practice model </h2>
-            <button onClick={() => setIsOpen(true)}>Open Model</button>
-            {isOpen && (
-                <div style={overLayStyle}>
-                    <div ref={modelRef} style={modelStyle}>
-                        <h2>Model Header</h2>
-                        <p>THis is model body</p>
-                        <button style={{ cursor: "pointer" }} onClick={() => setIsOpen(false)}>Close</button>
+            <h1>
+                Modal PopUp Example
+            </h1>
+            <div>
+                <button onClick={() => setIsOpen(true)}>Open Modal</button>
+            </div>
+            {
+                isOpen && (
+                    <div style={{ backgroundColor: 'rgba(0,0,0,0.4)', display: 'flex', justifyContent: "center", alignItems: "center", zIndex: 1000, position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh' }}>
+                        <div ref={modelRef} style={{ padding: "20px 20px", boxShadow: "0 4px 20px rgba(0,0,0,0.2)", textAlign: "center", backgroundColor: "white", borderRadius: "10px" }} >
+                            <h2>Modal Header</h2>
+                            <p>This is the modal body</p>
+                            <button onClick={() => setIsOpen(false)}>close</button>
+                        </div>
+
                     </div>
-                </div>
-            )}
-        </div>
+                )}
+        </div >
     )
 }
-const overLayStyle = {
-    position: 'fixed',
-    width: '100vw',
-    height: "100vh",
-    top: 0,
-    left: 0,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    zIndex: 2
-}
-const modelStyle = {
-    background: "white",
-    boxShadow: "0 4px 12px rgba(0,0,0,0.2)",
-    padding: "20px 40px",
-    textAlign: "center"
-}
-
-
-
-export default PracticeModel;
-

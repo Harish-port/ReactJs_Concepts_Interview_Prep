@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { checkboxesData } from "./checkBoxesdata";
 
 const CheckBoxes = ({ data, checked, setChecked }) => {

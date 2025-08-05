@@ -1,0 +1,8 @@
+1. as usally recursivly render the Checkboxes.
+2. create a global state in the component , it will have something like {1:true,2:true}  --- here the 1,2...etc are the index of the clicked checkboxes to keep track of it. 
+3. and it has props to the recursivly created funciton.
+4. and then in input type checkbox the checkbox value will depend on the checkbox={checkbox[node.id] || 0} here if the id is checked then display it has checked if not the rest of the checkboxes are default set to false.
+5. now comes the functionility on click onchange the setCheckbox(let newstate= {...prev,[id]:e.target.checked})
+6. after than now we need to check the checkboxes of children if user clicks on it for that we need to loop through each checkbox and add all of them to newSTate that would be newSTate[child.id] = e.target.checked;
+7. updatechildren(node);
+8. now children of children check child.children && updatechildren(node)
