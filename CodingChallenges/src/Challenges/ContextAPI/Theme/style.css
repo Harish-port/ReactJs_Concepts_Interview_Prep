@@ -1,0 +1,18 @@
+
+.light {
+  background-color: red;
+  color: #000;
+  height: 100vh;
+}
+
+.dark {
+  height: 100vh;
+  background-color:grey;
+  color: #fff;
+}
+
+button {
+  padding: 8px 12px;
+  margin-top: 10px;
+  cursor: pointer;
+}

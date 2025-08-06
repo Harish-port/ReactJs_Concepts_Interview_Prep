@@ -35,13 +35,19 @@ import DragDropTasks from './Challenges/DragDrop/DragDrop';
 import PraticeFileExpolo from './Challenges/FileExplorer/Practice3/PraticeFileExpolo';
 import CheckBoxPractise from './Challenges/NestedCheckboxes/PractiseCheckbox/CheckBoxPractise';
 import Main from './Challenges/ProductStore/Main';
+import UserHome from './Challenges/ContextAPI/Basic/Home';
+import ThemeToggle from './Challenges/ContextAPI/Theme/ThemeToggle';
+import ThemeProvider from './Challenges/ContextAPI/Theme/ThemeProvider';
+import './Challenges/ContextAPI/Theme/style.css';
 
 function App() {
   return (
     <div className="App">
       {/* <DataGrid /> */}
       {/* <DemoFile/> */}
-      <Main />
+      <ThemeProvider>
+        <ThemeToggle />
+      </ThemeProvider>
     </div>
   );
 }
