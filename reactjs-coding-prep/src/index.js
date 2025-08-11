@@ -15,7 +15,7 @@ root.render(
   <>
     <Provider store={store}>
       <ThemeProvider>
-        <CounterClass />
+        <App />
       </ThemeProvider>
     </Provider>
   </>

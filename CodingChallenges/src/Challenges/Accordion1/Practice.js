@@ -1,32 +1,31 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useState } from 'react';
 
-function PracticeAcordion({ items }) {
-    const [active, setActive] = useState(null);
-    console.log(items, "dlskahdkl");
+function PracticeAccordion({ items }) {
+    const [activeIndex, setActiveIndex] = useState(null)
     const handleClick = (selectedItem) => {
-        if (active === selectedItem) {
-            setActive(null)
+        if (activeIndex === selectedItem) {
+            setActiveIndex(null)
         } else {
-            setActive(selectedItem)
+            setActiveIndex(selectedItem)
         }
     }
     return (
-        <div>
+        <div>PracticeAccordion
             {items.map((item, index) => (
-                <div key={index}>
-                    <div onClick={() => handleClick(index)} style={{ cursor: 'pointer', width: 400, border: "1px solid black", padding: "10px" }}>
+                <div key={index} style={{border:"1px solid black",padding:"20px"}}>
+                    <div onClick={() => handleClick(index)}>
                         {item.title}
                     </div>
-                    {
-                        active === index &&
-                        <div>
+                    {activeIndex === index && (
+                        <div style={{ padding: "10px", background: "#fafafa" }}>
                             {item.content}
                         </div>
-                    }
+                    )}
                 </div>
             ))}
         </div>
     )
 }
 
-export default PracticeAcordion
+export default PracticeAccordion

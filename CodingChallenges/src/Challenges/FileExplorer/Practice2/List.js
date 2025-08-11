@@ -23,3 +23,4 @@ const List = ({ list, addListToNode, deleteNodeFromList, addAnodeToList }) => {
 }
 
 export default List;
+    

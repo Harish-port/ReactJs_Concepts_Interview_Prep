@@ -1,38 +1,30 @@
 import React, { useState } from 'react'
 
-function PracticeChip() {
-    const [inputValue, setInputValue] = useState('');
-    const [chipsText, setChipsText] = useState([]);
-    const handleInputCHange = (e) => {
-        setInputValue(e.target.value);
-    }
-    const handleKeyPress = (e) => {
-        if (e.key === "Enter") {
-            const chipText = inputValue.trim();
-            if (chipText === "") return;
-            setChipsText([...chipsText, chipText])
-            setInputValue("")
+function PracticeChips() {
+
+    let predefinedSTr = 'Harish'
+    const [dispalyStr, setDispalyStr] = useState([])
+    const handleClick = () => {
+        if (predefinedSTr.length !== dispalyStr.length) {
+            let count = dispalyStr.length + 1;
+            let temp = predefinedSTr.slice(0, count).split("");
+            setDispalyStr(temp)
+            console.log(temp);
         }
+
     }
-    const handleDelete = (selectedChip) => {
-        setChipsText(chipsText.filter((chip) => chip !== selectedChip))
-    }
-    console.log(chipsText);
-    
     return (
         <div>
-            <h1>Practise</h1>
-            <input type="text" placeholder='enter text and hit entersr' value={inputValue} onKeyDown={handleKeyPress} onChange={handleInputCHange} />
-            {
-                chipsText.map((chip, index) => (
-                    <div key={index}>
-                        {chip}
-                        <span onClick={() => handleDelete(chip)}>X</span><br />
-                    </div>
-                ))
-            }
+            <h2>Print the string</h2>
+            <button onClick={handleClick}>Click here!!</button>
+            {dispalyStr.map((distr, index) => (
+                <span key={index}>
+                    {distr}
+                    {index !== dispalyStr.length - 1 && ","}
+                </span>
+            ))}
         </div>
     )
 }
 
-export default PracticeChip
+export default PracticeChips

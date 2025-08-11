@@ -1,5 +1,5 @@
 
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ProgressBarChild from "./ProgressBarChild";
 import "./style.css";
 

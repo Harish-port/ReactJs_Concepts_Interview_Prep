@@ -1,0 +1,23 @@
+.progress1 {
+  position: relative;
+  width: 500px;
+  border: 1px solid black;
+  height: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress1 span {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99;
+}
+.progress1 div {
+    background-color: #00c251;
+    color: #fff;
+    height: 100%;
+    text-align: center;
+  }

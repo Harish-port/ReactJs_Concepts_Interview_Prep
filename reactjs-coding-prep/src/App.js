@@ -22,7 +22,7 @@ function App() {
          <button onClick={() => fancyInputRef.current.clear()}>Clear</button> */}
       </div>
       <Child setTest={handleChild} />
-      <CustomHookUsage />
+      <UseImperativeHook />
     </>
   );
 }

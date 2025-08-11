@@ -1,6 +1,5 @@
-import { useState } from "react";
-
-function ChipsInput() {
+import React, { useState } from "react";
+const  ChipsInput = () => {
   const [chips, setChips] = useState([]);
   const [inputValue, setInputValue] = useState("");
 

@@ -30,8 +30,29 @@ const mapDispatchToProps = (dispatch) =>{
 this.props.increment();
 this.props.decrement();
 
+// connect() ---->	HOC to link the react component with Redux store
 
-// connect() ---->	HOC to link class component with Redux
+import React from 'react';
+import { connect } from 'react-redux';
 
+class Counter extends React.Component {
+  render() {
+    const { count, increment } = this.props;
+    return (
+      <div>
+        <p>{count}</p>
+        <button onClick={increment}>+1</button>
+      </div>
+    );
+  }
+}
 
+const mapStateToProps = (state) => ({
+  count: state.counter
+});
 
+const mapDispatchToProps = (dispatch) => ({
+  increment: () => dispatch({ type: 'INCREMENT' })
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Counter);

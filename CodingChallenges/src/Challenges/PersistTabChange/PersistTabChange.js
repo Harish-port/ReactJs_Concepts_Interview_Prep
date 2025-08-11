@@ -4,7 +4,7 @@ import Profile from "./Profile";
 import Settings from "./Settings";
 import Interest from "./Interest";
 
-function PersistTabChange() {
+const PersistTabChange = () => {
   const [data, setData] = useState(() => {
     const storedData = localStorage.getItem("userData");
     return storedData

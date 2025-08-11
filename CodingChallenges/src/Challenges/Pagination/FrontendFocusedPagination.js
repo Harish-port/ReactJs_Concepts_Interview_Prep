@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import React,{ useEffect, useState } from "react";
+
 import "./pagination.css";
 const FrontEndPagination = () => {
   const [products, setProducts] = useState([]);
@@ -51,7 +52,7 @@ const FrontEndPagination = () => {
                 className={page === i + 1 ? "pagination__selected" : ""}
                 onClick={() => selectPageHandler(i + 1)}
                 key={i}
-              >
+              > 
                 {i + 1}
               </span>
             );

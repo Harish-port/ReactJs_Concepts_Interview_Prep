@@ -1,29 +1,34 @@
 import React, { useRef, useState } from 'react'
-import practiseHook from '../../CustomHooks/practiseHook';
+import practiceHook from './practiceHook';
 
-export default function PracticeModel() {
-    const [isOpen, setIsOpen] = useState(false);
+function PracticeModel() {
+    const [isOpen, setIsOpen] = useState(false)
+    console.log(isOpen, "<<<");
     const modelRef = useRef();
-    practiseHook(modelRef, () => setIsOpen(false))
+   practiceHook(modelRef,()=>setIsOpen(false))
     return (
         <div>
             <h1>
-                Modal PopUp Example
+                PracticeModel
             </h1>
-            <div>
-                <button onClick={() => setIsOpen(true)}>Open Modal</button>
-            </div>
+            <button onClick={() => setIsOpen(true)}>Open Model</button>
             {
-                isOpen && (
-                    <div style={{ backgroundColor: 'rgba(0,0,0,0.4)', display: 'flex', justifyContent: "center", alignItems: "center", zIndex: 1000, position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh' }}>
-                        <div ref={modelRef} style={{ padding: "20px 20px", boxShadow: "0 4px 20px rgba(0,0,0,0.2)", textAlign: "center", backgroundColor: "white", borderRadius: "10px" }} >
-                            <h2>Modal Header</h2>
-                            <p>This is the modal body</p>
-                            <button onClick={() => setIsOpen(false)}>close</button>
+                isOpen &&
+                (
+                    <div style={{
+                        position: 'fixed', top: 0, left: 0, zIndex: 1000, height: "100vh", display: "flex", justifyContent: "center", textAlign: "center",
+                        alignItems: 'center',
+                        width: "100vw", backgroundColor: 'rgba(0,0,0,0.5)'
+                    }}>
+                        <div  ref={modelRef}  style={{ zIndex: 1000, padding: "10px", background: 'white' }}>
+                            <h2>Model Header</h2>
+                            <p>THis is the modal body</p>
+                            <button onClick={() => setIsOpen(false)}>Close</button>
                         </div>
-
-                    </div>
-                )}
-        </div >
+                    </div>)
+            }
+        </div>
     )
 }
+
+export default PracticeModel

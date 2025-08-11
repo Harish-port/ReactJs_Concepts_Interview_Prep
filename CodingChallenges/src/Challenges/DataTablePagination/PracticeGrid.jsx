@@ -3,76 +3,67 @@ import { sampleData } from './SampleData';
 
 function PracticeGrid() {
     const [currentPage, setCurrentPage] = useState(1);
-    const [rowsPerPage, setRowsPerPage] = useState(3);
-
+    const [rowsPerPage, setRowsPerPage] = useState(3)
     const totalPages = Math.ceil(sampleData.length / rowsPerPage);
-    const startIndex = (currentPage - 1) * rowsPerPage;
-    const currentData = sampleData.slice(startIndex, startIndex + rowsPerPage);
-
-    const handleRowsPerPage = (e) => {
+    const startIndex = (currentPage - 1) & rowsPerPage;
+    const handleRowsPerChange = (e) => {
         setRowsPerPage(Number(e.target.value));
-        setCurrentPage(1)
+        setCurrentPage(1);
     }
-
+    const currentData = sampleData.slice(startIndex, startIndex + rowsPerPage);
     const handlePrevious = () => {
         setCurrentPage((prev) => Math.max(prev - 1, 1))
     }
-
     const handleNext = () => {
         setCurrentPage((prev) => Math.min(prev + 1, totalPages))
     }
-    console.log(currentPage);
-
     return (
         <div>
-            <h1>Practise Grid</h1>
-            <table border={1} cellPadding='10' style={{ borderCollapse: "collapse", padding: "10px", width: "98vw" }}>
-                <thead>
-                    <th>
-                        id
-                    </th>
-                    <th>
-                        Name
-                    </th>
-                    <th>
-                        Age
-                    </th>
-                </thead>
-                <tbody>
-                    {currentData.map((tData) => (
+            <h1>Practice Grid</h1>
+            <div>
+                <table border='1' cellPadding='10' style={{ borderCollapse: "collapse", width: "98vw" }} >
+                    <thead>
                         <tr>
-                            <td>
-                                {tData.id}
-                            </td>
-                            <td>
-                                {tData.name}
-                            </td>
-                            <td>
-                                {tData.age}
-                            </td>
+                            <th>id</th>
+                            <th>name</th>
+                            <th>age</th>
                         </tr>
-                    ))}
-                </tbody>
-            </table>
-            <div style={{ padding: "10px 0", display: "flex" }}>
+                    </thead>
+                    <tbody>
+                        {currentData.map((data) => (
+                            <><tr>
+                                <td>
+                                    {data.id}
+                                </td>
+                                <td>
+                                    {data.name}
+                                </td>
+                                <td>
+                                    {data.age}
+                                </td>
+                            </tr></>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
+            <div style={{ display: "flex" }}>
                 <div>
-                    {
-
-                        <button disabled={currentPage === 1 ? true : false} onClick={handlePrevious}>Previous</button>
-                    }
-                    <span> Page {currentPage} of {totalPages} </span>
-                    {
-
-                        <button disabled={currentPage === totalPages ? true : false} onClick={handleNext}>Next</button>
-
-                    }
+                    <button disabled={currentPage === 1} onClick={handlePrevious}>
+                        Previous
+                    </button>
+                    <span>
+                        Page {currentPage} of {totalPages}
+                    </span>
+                    <button disabled={currentPage === totalPages} onClick={handleNext}>
+                        Next
+                    </button>
                 </div>
-                <div style={{ marginLeft: "auto" }}>
-                    <span>Rows per page </span>
-                    <select value={rowsPerPage} onChange={handleRowsPerPage}>
-                        <option value='3'>3</option>
-                        <option value='5'>5</option>
-                        <option value='10'>10</option>
+                <div style={{ marginLeft: "auto", paddingRight: "20px" }}>
+                    Rows per page
+                    <select value={rowsPerPage} onChange={(e) => handleRowsPerChange(e)}>
+                        <option value="3">3</option>
+                        <option value="5">5</option>
+                        <option value="10">10</option>
                     </select>
                 </div>
             </div>

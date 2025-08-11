@@ -5,34 +5,57 @@
 
 
 ///Lets create a fancyinput for understanding;
-import React, { useImperativeHandle, useRef, useState, forwardRef } from 'react';
 
 // Use forwardRef to pass ref properly
-const UseImperativeHook = forwardRef((props, ref) => {
-    const [inputValue, setInputValue] = useState("");
-    const inputRef = useRef(null);
+import React, { forwardRef, useImperativeHandle, useState } from 'react';
 
-    useImperativeHandle(ref, () => ({
-        focus: () => {
-            inputRef.current.focus();
-        },
-        clear: () => {
-            setInputValue("");  // This will also clear the state
-            inputRef.current.value = ""; // Clears the input field
-        }
-    }));
+// Child component
+const MyInput = forwardRef((props, ref) => {
+  const [value, setValue] = useState('');
 
-    return (
-        <div>
-            <input
-                type="text"
-                value={inputValue}
-                onChange={(e) => setInputValue(e.target.value)}
-                ref={inputRef}
-            />
-            <p>{inputValue}</p>
-        </div>
-    );
+  useImperativeHandle(ref, () => ({
+    focusInput: () => {
+      // Imperative action: focus the input element
+      document.getElementById('my-input').focus();
+    },
+    clearInput: () => {
+      setValue('');
+    },
+    getCurrentValue: () => value,
+  }));
+
+  return (
+    <input
+      id="my-input"
+      type="text"
+      value={value}
+      onChange={(e) => setValue(e.target.value)}
+    />
+  );
 });
 
-export default UseImperativeHook;
+// Parent component
+function App() {
+  const inputRef = React.useRef();
+
+  const handleFocus = () => {
+    inputRef.current.focusInput();
+  };
+
+  const handleClear = () => {
+    inputRef.current.clearInput();
+  };
+
+  const handleGetValue = () => {
+    alert(`Current value: ${inputRef.current.getCurrentValue()}`);
+  };
+
+  return (
+    <div>
+      <MyInput ref={inputRef} />
+      <button onClick={handleFocus}>Focus Input</button>
+      <button onClick={handleClear}>Clear Input</button>
+      <button onClick={handleGetValue}>Get Value</button>
+    </div>
+  );
+}
